@@ -1,0 +1,7 @@
+**************************Ravens Version 0.05***********************
+added dropt down menus
+**************************to do*************************************
+- create a video slider that pulls video from youtubve and displays it
+-make it look less bland
+-add automatic transition
+ 

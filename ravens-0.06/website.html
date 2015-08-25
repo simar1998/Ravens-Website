@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Runnymede Ravens</title>
+	<link rel="stylesheet"  href="css/bootstrap.css">
+    <link rel="stylesheet"  href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300'rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="java_scripts/jssor.js"></script>
+    <script type="text/javascript" src="java_scripts/jssor.slider.js"></script>
+    <script>
+        init_jssor_slider1 = function (containerId) {
+
+            var options = {
+                $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+
+                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$(containerId, options);
+        };
+    </script>
+    <style type="text/css">
+        .image_slider{
+            padding-right: 1000px;
+        }
+        .ul{
+            padding: 0;
+            list-style: none;
+        }
+         ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #fff;
+        background: #939393;
+    }
+    ul li ul.dropdown{
+        min-width: 125px; /* Set width of the dropdown */
+        background-color: #FF3030;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+    </style>
+   
+</head>
+<body>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="title-logo" src="images/logo.png" alt="Runnymede Ravens logo" height="25%" width="25%">
+        </div>
+        <div class="col-md-6 text-right text-uppercase">
+            <h1 class="title-super text-thick">Runnymede Ravens</h1>
+            <h4>Runnymede Collegiate Institute</h4>
+        </div>
+    </div>
+    <div class="row" >
+        <nav>
+        <ul style="list-style-type:none">
+            <div class="col-md-3 text-center col-3-menu">
+                <li><a href="website.html" style="color:white">Home</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+                <li><a href="about_us.html" style="color:white">About us</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+                <li><a href="contact-us.html" style="color:white">Contact us</a></li>
+            </div>
+            <div class="col-md-3 text-center  col-3-menu">
+               <!-- <li><a href="teams.html" style="color:white">Teams</a></li> -->
+             <li>
+            <a href="#"  style="color:white">Teams &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#" style="color:white">Soccer</a></li>
+                <li><a href="#" style="color:white">Football</a></li>
+                <li><a href="#" style="color:white">Hockey</a></li>
+                <li><a href="#" style="color:white">Basketball</a></li>
+                <li><a href="#" style="color:white">Others</a></li>
+            </ul>
+        </li>
+            </div>
+        </ul>   
+    </nav>
+    </div>
+    <div class="row">
+            <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div id="slider1_container" class="col-md-6" style="position: relative; width: 600px;
+        height: 300px; overflow: hidden;" align="center">
+ 
+        <!-- Slides Container --> 
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
+            overflow: hidden;">
+            <div><img u="image"  src="images/football.png"  /></div>
+            <div><img u="image" src="images/basketball_resized.png" /></div>
+            <div><img u="image" src="images/bigpiture_resized.png" /></div>
+            <div><img u="image" src="images/soccer_resized.png" /></div>
+        </div>
+
+        <!--#region Arrow Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+        <style>
+            /* jssor slider arrow navigator skin 11 css */
+            /*
+            .jssora11l                  (normal)
+            .jssora11r                  (normal)
+            .jssora11l:hover            (normal mouseover)
+            .jssora11r:hover            (normal mouseover)
+            .jssora11l.jssora11ldn      (mousedown)
+            .jssora11r.jssora11rdn      (mousedown)
+            */
+            .jssora11l, .jssora11r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 37px;
+                height: 37px;
+                cursor: pointer;
+                background: url(images/a11.png) no-repeat;
+                overflow: hidden;
+            }
+            .jssora11l { background-position: -11px -41px; }
+            .jssora11r { background-position: -71px -41px; }
+            .jssora11l:hover { background-position: -131px -41px; }
+            .jssora11r:hover { background-position: -191px -41px; }
+            .jssora11l.jssora11ldn { background-position: -251px -41px; }
+            .jssora11r.jssora11rdn { background-position: -311px -41px; }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora11l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora11r" style="top: 123px; right: 8px;">
+        </span>
+        <!--#endregion Arrow Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
+        <!-- Trigger -->
+        <script>
+            init_jssor_slider1("slider1_container");
+        </script>
+    </div>
+        </div>
+    <div class="row">
+        <div class="col-mnd-12 text-uppercase text"> 
+            <h2 class="text-muted">Our Teams</h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img class="img-responsive" src="images/soccer_resized.png" alt="Piture of soccer team" >
+            <h3 class="text-uppercase">Soccer</h3>
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" src="images/basketball_resized.png" alt="Piture of basketball team"  >
+            <h3 class="text-uppercase">Basketball</h3>
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" src="images/bigpiture_resized.png" alt="Piture of football team " >
+            <h3 class="text-uppercase">football</h3>
+        </div>
+    </div>
+</div>
+</body>
+</html> 
